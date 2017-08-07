@@ -6,8 +6,8 @@ To deploy the [My Thai Star](https://github.com/oasp/my-thai-star) reference app
 
 Add the application templates:
 
-    $ oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
-    $ oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
 
 Create the backend application:
 

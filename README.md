@@ -27,8 +27,8 @@ First, create a dedicated `oasp` project.
 
 Now add the builder image configuration and start their build.
 
-    $ oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
-    $ oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
     $ oc start-build s2i-oasp-java --namespace=oasp
     $ oc start-build s2i-oasp-angular --namespace=oasp
     
