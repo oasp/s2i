@@ -2,8 +2,8 @@
 
 oadm new-project oasp --display-name='OASP' --description='Open Application Standard Platform'
 
-oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
-oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
 
 oc start-build s2i-oasp-java --namespace=oasp
 oc start-build s2i-oasp-angular --namespace=oasp
@@ -19,8 +19,8 @@ done
 oadm policy add-role-to-group system:image-puller system:authenticated --namespace=oasp
 
 oadm new-project mythaistar --display-name='My Thai Star' --description='My Thai Star reference application for OASP'
-oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
-oc create -f https://raw.githubusercontent.com/mickuehl/s2i-oasp/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
 
 oc new-app --template=oasp-mythaistar-java-sample --namespace=mythaistar
 oc start-build mythaistar-java --namespace=mythaistar

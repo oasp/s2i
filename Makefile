@@ -1,5 +1,5 @@
 
-IMAGE_NAME = mickuehl/s2i-oasp
+IMAGE_NAME = oasp/s2i
 
 build:
 	docker build -t $(IMAGE_NAME) .
