@@ -14,6 +14,13 @@ Currently there are builder images for
 
 In order to get started, additional templates to deploy the [OASP 'My Thai Star'](https://github.com/oasp/my-thai-star) reference application are provided.
 
+## Previous setup
+
+In order to build all of this, it will be necessary, first, to have a running OpenShift cluster.
+
+1. Download the executable `oc.exe` from [here](https://github.com/openshift/origin/releases) and paste it somewhere in your machine.
+
+2. Once extracted and pasted, you can navigate to `oc.exe`'s directory and execute `oc cluster up`.
 
 ## Usage
 
