@@ -1,6 +1,6 @@
 #!/bin/bash
 
-oadm new-project oasp --display-name='OASP' --description='Open Application Standard Platform'
+oc new-project oasp --display-name='OASP' --description='Open Application Standard Platform'
 
 oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
 oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
@@ -16,9 +16,9 @@ while [[ !  -z  $ret  ]]; do
     sleep 30
 done
 
-oadm policy add-role-to-group system:image-puller system:authenticated --namespace=oasp
+oc policy add-role-to-group system:image-puller system:authenticated --namespace=oasp
 
-oadm new-project mythaistar --display-name='My Thai Star' --description='My Thai Star reference application for OASP'
+oc new-project mythaistar --display-name='My Thai Star' --description='My Thai Star reference application for OASP'
 oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
 oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
 
