@@ -42,6 +42,11 @@ That's all !
 
 Use script `build.sh` to automatically install and build all image streams. The script also creates a project 'My Thai Star' and deploys the reference application.
 
+1. Open a bash shell as Administrator
+2. Execute shell file: 
+
+`$ /PATH/TO/BUILD/FILE/build.sh`
+
 ### Further documentation
 
 * The '[My Thai Star](templates/mythaistar)' reference application templates
