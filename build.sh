@@ -4,8 +4,8 @@
 oc new-project oasp --display-name='OASP' --description='Open Application Standard Platform'
 
 # Create base-images and add them to OASP project
-oc create -f https://raw.githubusercontent.com/cbeldacap/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
-oc create -f https://raw.githubusercontent.com/cbeldacap/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
 
 # Build base-images in OASP project
 oc start-build s2i-oasp-java --namespace=oasp
