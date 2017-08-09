@@ -41,7 +41,7 @@
                 {
                     "description": "Git source URI for application",
                     "name": "GIT_URI",
-                    "value": "https://github.com/mickuehl/my-thai-star"
+                    "value": "https://github.com/cbeldacap/my-thai-star"
                 },
                 {
                     "description": "Git branch/tag reference",
@@ -111,7 +111,7 @@
                                 "env": [
                                     {
                                         "name": "REST_ENDPOINT_URL",
-                                        "value": "${REST_ENDPOINT_URL}"
+                                        "value": "${APP_REST_PATH_ROOT}"
                                     },
                                     {
                                         "name": "REST_ENDPOINT_PATTERN",
