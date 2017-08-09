@@ -26,8 +26,8 @@ oc policy add-role-to-group system:image-puller system:authenticated --namespace
 oc new-project mythaistar --display-name='My Thai Star' --description='My Thai Star reference application for OASP'
 
 # Create templates for both MTS's Angular client and Java server
-oc create -f https://raw.githubusercontent.com/cbeldacap/s2i/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
-oc create -f https://raw.githubusercontent.com/cbeldacap/s2i/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-java-template.json --namespace=mythaistar
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/templates/mythaistar/oasp-mythaistar-angular-template.json --namespace=mythaistar
 
 # Create Java application out of the Java template 
 oc new-app --template=oasp-mythaistar-java-sample --namespace=mythaistar
