@@ -19,7 +19,8 @@ sed -i "s|$REST_ENDPOINT_PATTERN|$REST_ENDPOINT_URL|" $TARGET_ENV_FILE
 echo "---> Building sources ..."
 export npm_config_tmp=/tmp
 yarn install
-yarn build:$BUILD_TARGET
+# yarn build:$BUILD_TARGET
+yarn build
 
 echo "---> Moving sources ..."
 cp -ad $LOCAL_SOURCE_DIR/$ARTIFACT_DIR/* $TARGET_SOURCE_DIR
