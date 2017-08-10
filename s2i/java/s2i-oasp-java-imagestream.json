@@ -33,7 +33,7 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "https://github.com/mickuehl/s2i-oasp.git",
+            "uri": "https://github.com/oasp/s2i.git",
             "ref": "master"
           }
         },
