@@ -41,7 +41,7 @@
                 {
                     "description": "Git source URI for application",
                     "name": "GIT_URI",
-                    "value": "https://github.com/mickuehl/my-thai-star"
+                    "value": "https://github.com/oasp/my-thai-star"
                 },
                 {
                     "description": "Git branch/tag reference",
