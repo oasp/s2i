@@ -52,7 +52,8 @@ RUN rm -fr /var/cache/yum/* && yum clean all
 # Install OS packages
 RUN yum install -y --enablerepo=centosplus $INSTALL_PKGS $DEVEL_PACKAGES && \
     rpm -V $INSTALL_PKGS $DEVEL_PACKAGES && \
-    yum clean all
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 # Install Maven
 RUN (curl -0 http://www.eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | \

@@ -4,9 +4,9 @@
 . $(dirname $0)/functions
 
 HOME=/opt/app-root/src
-MAVEN_HOME=/usr/local/maven
-
 LOCAL_SOURCE_DIR=${HOME}/source
+
+MAVEN_HOME=/usr/local/maven
 DEPLOY_DIR=/opt/openshift
 
 echo "---> Configure sources ..."
@@ -39,11 +39,11 @@ echo "---> Building sources ..."
 # If a pom.xml is present, this is a normal build scenario so run maven.
 if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
 
+  pushd $LOCAL_SOURCE_DIR &> /dev/null
+
   # the subdirectory within LOCAL_SOURCE_DIR from where we should copy build
   # artifacts (*.war, *.jar)
   ARTIFACT_DIR=${ARTIFACT_DIR:-target}
-
-  pushd $LOCAL_SOURCE_DIR &> /dev/null
 
   PROFILE=""
   if [ -n "$MAVEN_PROFILE" ]; then
@@ -55,7 +55,6 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
   MAVEN_ARGS="$MAVEN_GOALS $MAVEN_ARGS ${PROFILE} -Djava.net.preferIPv4Stack=true ${MAVEN_ARGS_APPEND}"
 
   echo "Found pom.xml... attempting to build with 'mvn ${MAVEN_ARGS}'"
-  echo "Using $(mvn --version)"
 
   # Execute the actual build
   mvn $MAVEN_ARGS
@@ -66,7 +65,7 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
     exit $ERR
   fi
 
-  echo "---> Moving sources ..."
+  echo "---> Moving binaries ..."
 
   cp -rfv $LOCAL_SOURCE_DIR/$ARTIFACT_DIR/*${APP_SUFFIX}.war $DEPLOY_DIR/app.war 2> /dev/null
   echo "[INFO] Application war file is located in ${DEPLOY_DIR}/app.war"
