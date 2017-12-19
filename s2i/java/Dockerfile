@@ -27,7 +27,7 @@ ENV MAVEN_HOME /usr/local/maven
 ENV PATH=/opt/maven/bin/:$PATH
 
 # User ID for the stuff inside the container
-ENV USER_UID=1001
+ENV USER_UID 1001
 
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
 LABEL name="$NAME" \
