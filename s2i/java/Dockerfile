@@ -26,9 +26,6 @@ ENV STI_SCRIPTS_PATH=/usr/local/sti
 ENV MAVEN_HOME /usr/local/maven
 ENV PATH=/opt/maven/bin/:$PATH
 
-# User ID for the stuff inside the container
-ENV USER_UID 1001
-
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
 LABEL name="$NAME" \
       maintainer="$MAINTAINER" \
@@ -73,19 +70,17 @@ COPY s2i/java/bin/ $STI_SCRIPTS_PATH
 # random UID.
 RUN mkdir -p /opt/openshift && \
     mkdir -p /opt/app-root/source && \
-    mkdir -p /opt/s2i/destination && \
-    mkdir -p /opt/app-root/src && \
-    chmod -R a+rwx /opt/openshift && \
+    mkdir -p /opt/app-root/src
+
+RUN chmod -R a+rwx /opt/openshift && \
     chmod -R a+rwx /opt/app-root/source && \
-    chmod -R a+rwx /opt/s2i/destination && \
     chmod -R a+rwx /opt/app-root/src && \
-    chown -R $USER_ID:0 /opt/openshift && \
-    chown -R $USER_ID:0 /opt/app-root/source && \
-    chown -R $USER_ID:0 /opt/s2i/destination && \
-    chown -R $USER_ID:0 /opt/app-root/src
+    chown -R 10001:0 /opt/openshift && \
+    chown -R 10001:0 /opt/app-root/source && \
+    chown -R 10001:0 /opt/app-root/src
 
 # The default user in the centos image
-USER $USER_ID
+USER 10001
 
 # Set the default port for applications built using this image
 EXPOSE 8080
