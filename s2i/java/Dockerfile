@@ -25,7 +25,9 @@ ENV TAGS="builder,s2i,java,oasp"
 ENV STI_SCRIPTS_PATH=/usr/local/sti
 ENV MAVEN_HOME /usr/local/maven
 ENV PATH=/opt/maven/bin/:$PATH
+ENV APP_ROOT=/opt/app-root
 
+# User ID 
 ENV USER_ID 10001
 
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
@@ -66,28 +68,23 @@ RUN chmod -R a+rwX $MAVEN_HOME/conf
 # Install S2I scripts etc.
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/sti
 COPY s2i/java/bin/ $STI_SCRIPTS_PATH
-RUN chmod -R u+x ${STI_SCRIPTS_PATH} && \
-    chgrp -R 0 ${STI_SCRIPTS_PATH}
+RUN chmod -R a+rx ${STI_SCRIPTS_PATH} && \
+    chown -R ${USER_ID}:0 ${STI_SCRIPTS_PATH}
 
 # In order to drop the root user, we have to make some directories world
 # writeable as OpenShift default security model is to run the container under
 # random UID.
-RUN mkdir -p /opt/openshift && \
-    mkdir -p /opt/app-root/source && \
-    mkdir -p /opt/app-root/src
+RUN mkdir -p ${APP_ROOT}/src && \
+    mkidr -p ${APP_ROOT}/deploy && \
+    chmod -R ${APP_ROOT} u+rx && \
+    chown -R ${USER_ID}:0 ${APP_ROOT}
 
-RUN chmod -R a+rwx /opt/openshift && \
-    chmod -R a+rwx /opt/app-root/source && \
-    chmod -R a+rwx /opt/app-root/src && \
-    chown -R 10001:0 /opt/openshift && \
-    chown -R 10001:0 /opt/app-root/source && \
-    chown -R 10001:0 /opt/app-root/src
-
-# The default user in the centos image
-USER 10001
+# The default user in the image
+USER ${USER_ID}
 
 # Set the default port for applications built using this image
 EXPOSE 8080
 
 # Set the default CMD for the image
+WORKDIR ${APP_ROOT}
 CMD $STI_SCRIPTS_PATH/usage

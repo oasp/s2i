@@ -3,11 +3,11 @@
 # 
 . $(dirname $0)/functions
 
-HOME=/opt/app-root/src
-LOCAL_SOURCE_DIR=${HOME}/source
+HOME=/opt/app-root
+LOCAL_SOURCE_DIR=${HOME}/src
+DEPLOY_DIR=${HOME}/deploy
 
 MAVEN_HOME=/usr/local/maven
-DEPLOY_DIR=/opt/openshift
 
 echo "---> Configure sources ..."
 
