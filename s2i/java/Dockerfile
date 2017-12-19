@@ -26,8 +26,8 @@ ENV STI_SCRIPTS_PATH=/usr/local/sti
 ENV MAVEN_HOME /usr/local/maven
 ENV PATH=/opt/maven/bin/:$PATH
 
-# User & User ID for the stuff inside the container
-ENV USER_NAME=default USER_UID=1001
+# User ID for the stuff inside the container
+ENV USER_UID=1001
 
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
 LABEL name="$NAME" \
