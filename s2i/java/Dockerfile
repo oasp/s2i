@@ -26,6 +26,8 @@ ENV STI_SCRIPTS_PATH=/usr/local/sti
 ENV MAVEN_HOME /usr/local/maven
 ENV PATH=/opt/maven/bin/:$PATH
 
+ENV USER_ID 10001
+
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
 LABEL name="$NAME" \
       maintainer="$MAINTAINER" \
@@ -64,6 +66,8 @@ RUN chmod -R a+rwX $MAVEN_HOME/conf
 # Install S2I scripts etc.
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/sti
 COPY s2i/java/bin/ $STI_SCRIPTS_PATH
+RUN chmod -R u+x ${STI_SCRIPTS_PATH} && \
+    chgrp -R 0 ${STI_SCRIPTS_PATH}
 
 # In order to drop the root user, we have to make some directories world
 # writeable as OpenShift default security model is to run the container under
