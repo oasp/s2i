@@ -75,7 +75,7 @@ RUN chmod -R a+rx ${STI_SCRIPTS_PATH} && \
 # writeable as OpenShift default security model is to run the container under
 # random UID.
 RUN mkdir -p ${APP_ROOT}/src && \
-    mkidr -p ${APP_ROOT}/deploy && \
+    mkdir -p ${APP_ROOT}/deploy && \
     chmod -R ${APP_ROOT} u+rx && \
     chown -R ${USER_ID}:0 ${APP_ROOT}
 
