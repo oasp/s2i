@@ -58,7 +58,7 @@ RUN yum install -y yum-utils gettext hostname && \
 
 # Install S2I scripts etc.
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/sti
-COPY s2i/java/bin/ $STI_SCRIPTS_PATH
+COPY s2i/angular/bin/ $STI_SCRIPTS_PATH
 RUN chmod -R a+rx ${STI_SCRIPTS_PATH} && \
     chown -R ${USER_ID}:0 ${STI_SCRIPTS_PATH}
 
