@@ -39,6 +39,6 @@ oc new-app --template=oasp-mythaistar-angular-sample --namespace=mythaistar
 
 sleep 10
 # Setup Environment Variable pointing to Java application's URL
-oc set env bc/mythaistar-angular REST_ENDPOINT_URL=https://`oc get routes mythaistar-java --no-headers=true --namespace=mythaistar | sed -e's/  */ /g' | cut -d" " -f 2` --namespace=mythaistar
+oc set env bc/mythaistar-angular REST_ENDPOINT_URL=http://`oc get routes mythaistar-java --no-headers=true --namespace=mythaistar | sed -e's/  */ /g' | cut -d" " -f 2` --namespace=mythaistar
 # Build Angular application (sets the E.V. in the Angular code)
 oc start-build mythaistar-angular --namespace=mythaistar
