@@ -28,7 +28,7 @@ $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/devonfw/s2i/s2i
 oc start-build s2i-devonfw-java --namespace=devonfw
 oc start-build s2i-devonfw-angular --namespace=devonfw
 
-## Wait until the images are finish
+## Wait until the images are finished
 sleep 30
 ret=`oc status -v -n devonfw | grep 'running for'`
 while [[ !  -z  $ret  ]]; do
