@@ -2,9 +2,9 @@
 
 This are the templates and icons to use in DevonFW Openshift Origin.
 
-Inside the s2i forlder, we have the s2i templates to build an s2i images inside openshift
-Inside the templates folder, we have the angular and java templates to deploy a devonfw apps. (Note: This templates need the s2i builds).
-Inside the icons we have a custom icons for openshift.
+- Inside the `s2i` forlder, we have the s2i templates to build an s2i images inside openshift.
+- Inside the `templates` folder, we have the angular and java templates to deploy a devonfw apps. (Note: This templates need the s2i builds).
+- Inside the `icons` we have a custom icons for openshift.
 
 The DevonFW templates have a custom icons, and to use it, you must modify the master-config.yml inside openshift. More information:
 - [Openshift docs customization](https://docs.openshift.com/container-platform/3.5/install_config/web_console_customization.html#loading-custom-scripts-and-stylesheets).
