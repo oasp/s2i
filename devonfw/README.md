@@ -2,13 +2,13 @@
 
 This are the templates and icons to use in DevonFW Openshift Origin.
 
-- Inside the `s2i` forlder, we have the s2i templates to build an s2i images inside openshift.
+- Inside the `s2i` folder, we have the s2i templates to build an s2i images inside openshift.
 - Inside the `templates` folder, we have the angular and java templates to deploy a devonfw apps. (Note: This templates need the s2i builds).
 - Inside the `icons` we have a custom icons for openshift.
 
 The DevonFW templates have a custom icons, and to use it, you must modify the master-config.yml inside openshift. More information:
 - [Openshift docs customization](https://docs.openshift.com/container-platform/3.5/install_config/web_console_customization.html#loading-custom-scripts-and-stylesheets).
-- How to use custom icons (Work in progress).
+- [How to use custom icons] (https://github.com/devonfw/devonfw-shop-floor/tree/master/dsf4openshift/cluster/initial-setup/add-icons).
 
 ## How to use
 
@@ -45,7 +45,7 @@ oc policy add-role-to-group system:image-puller system:authenticated --namespace
 
 ### How to create DevonFW templates in openshift
 
-To let all user to use this templates in all openshift projects, you should create it in a openshift namespace. To do that, you must log in as an admin.
+To let all user to use this templates in all openshift projects, you should create it in an openshift namespace. To do that, you must log in as an admin.
 ```
 $ oc login -u system:admin
 $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/devonfw/templates/devonfw-java-template.json --namespace=openshift
@@ -63,7 +63,7 @@ To use this templates with openshift, you can override any parameter values defi
 
 This file must be a list of <name>=<value> pairs. A parameter reference may appear in any text field inside the template items.
 
-Te parametres that you must override are the followin
+The parameters that you must override are the following
 
     $ cat paramfile
       APPLICATION_NAME=app Name
@@ -71,12 +71,12 @@ Te parametres that you must override are the followin
 	  GIT_REF=master
 	  CONTEXT_DIR=/context
 		
-The following parametres are opcional
+The following parameters are optional
 
 	$ cat paramfile
 	  APPLICATION_HOSTNAME=Custom hostname for service routes. Leave blank for default hostname, e.g.: <application-name>.<project>.<default-domain-suffix>,
 	  # Only for angular
-	  REST_ENDPOINT_URL=The URL of the backend's REST API endpoint. This can be declarated after,
+	  REST_ENDPOINT_URL=The URL of the backend's REST API endpoint. This can be declared after,
 	  REST_ENDPOINT_PATTERN=The pattern URL of the backend's REST API endpoint that must be modify by the REST_ENDPOINT_URL variable,
 
 For example, to deploy My Thai Star Java

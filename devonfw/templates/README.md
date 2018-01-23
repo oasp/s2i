@@ -1,6 +1,6 @@
 # DevonFW templates
 
-This are the DevonFW templates to build an apps using the s2i images. They are based on the work of Mickuehl in Oasp templates/mythaistar for deploy My Thai Star.
+This are the DevonFW templates to build apps using the s2i images. They are based on the work of Mickuehl in Oasp templates/mythaistar for deploy My Thai Star.
 
 ## devonfw-angular-template.json
 
@@ -14,5 +14,5 @@ The templates to deploy Java apps. Need a build image from s2i-devonfw-java. The
 ## How to use
 
 Read the next:
-- [How to create DevonFW templates in openshift](https://github.com/Jorge-Dacal/s2i/tree/master/devonfw#how-to-create-devonfw-templates-in-openshift).
-- [How to use DevonFW templates in openshift](https://github.com/Jorge-Dacal/s2i/tree/master/devonfw#how-to-use-devonfw-templates-in-openshift).
+- [How to create DevonFW templates in openshift](https://github.com/oasp/s2i/tree/master/devonfw#how-to-create-devonfw-templates-in-openshift).
+- [How to use DevonFW templates in openshift](https://github.com/oasp/s2i/tree/master/devonfw#how-to-use-devonfw-templates-in-openshift).
