@@ -9,11 +9,11 @@
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "devonfw-angular-label",
+                "name": "devonfw-angular-private",
                 "annotations": {
                     "description": "DevonFW application (angular/front-end)",
                     "iconClass": "devonfw-logo",
-                    "openshift.io/display-name": "DevonFW Angular label",
+                    "openshift.io/display-name": "DevonFW Angular Private",
                     "tags": "instant-app,devonfw,javascript,angular"
                 }
             },
@@ -61,6 +61,11 @@
                     "value": "/context"
                 },
                 {
+                    "description": "Git SSH-KEY to connect with private repository.",
+                    "name": "SSH_KEY",
+                    "displayName": "SSH KEY"
+                },
+                {
                     "description": "Github trigger secret",
                     "name": "GITHUB_TRIGGER_SECRET",
                     "from": "[a-zA-Z0-9]{8}",
@@ -101,6 +106,9 @@
                         ],
                         "source": {
                             "type": "Git",
+                            "sourceSecret": {
+                                "name": "${SECRET}"
+                            },
                             "git": {
                                 "uri": "${GIT_URI}",
                                 "ref": "${GIT_REF}"
