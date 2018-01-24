@@ -63,8 +63,7 @@
                 {
                     "description": "Git SSH-KEY to connect with private repository.",
                     "name": "SSH_KEY",
-                    "displayName": "SSH KEY",
-                    "value": ""
+                    "displayName": "SSH KEY"
                 },
                 {
                     "description": "Github trigger secret",
