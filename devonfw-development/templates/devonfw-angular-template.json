@@ -9,7 +9,7 @@
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "devonfw-angular-labelprueba3",
+                "name": "devonfw-angular-labelprueba4",
                 "annotations": {
                     "description": "DevonFW application (angular/front-end)",
                     "iconClass": "devonfw-logo",
@@ -23,9 +23,16 @@
             },
             "parameters": [
                 {
-                    "description": "The name for the application.",
+                    "description": "The name for the application. It must be on lower case and must be unic. It should be the name of the app with the type, example: mythaistar-angular",
                     "name": "APPLICATION_NAME",
-                    "value": "app Name",
+                    "value": "mythaistar-angular",
+                    "displayName": "Application name",
+                    "required": true
+                },
+                {
+                    "description": "The name for the gropup of application. It should be the name of the app without the type, example: My Thai Star",
+                    "name": "APPLICATION_DISPLAY_MENU",
+                    "value": "My Thai Star",
                     "displayName": "Application name",
                     "required": true
                 },
@@ -48,7 +55,7 @@
                 {
                     "description": "Git source URI for application",
                     "name": "GIT_URI",
-                    "value": "Git uri"
+                    "value": "https://github.com/oasp/my-thai-star.git"
                 },
                 {
                     "description": "Git branch/tag reference",
@@ -81,7 +88,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
+                            "application": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
@@ -155,7 +162,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
+                            "application": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
@@ -174,7 +181,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
+                            "application": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
@@ -248,7 +255,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
+                            "application": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
@@ -266,7 +273,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
+                            "application": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
