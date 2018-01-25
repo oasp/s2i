@@ -9,17 +9,13 @@
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "devonfw-angular-labelprueba3",
+                "name": "devonfw-angular-labelprueba",
                 "annotations": {
                     "description": "DevonFW application (angular/front-end)",
                     "iconClass": "devonfw-logo",
                     "openshift.io/display-name": "DevonFW Angular label",
                     "tags": "instant-app,devonfw,javascript,angular"
                 }
-            },
-            "labels": {
-                "application": "devonfw-angular",
-                "createdBy": "devonfw-angular"
             },
             "parameters": [
                 {
@@ -73,16 +69,18 @@
                     "generate": "expression"
                 }
             ],
+            "labels": {
+                "app": "PAQUITO",
+                "appName": "APPNAMED",
+                "application": "devonfw-angular",
+                "createdBy": "devonfw-angular"
+            },
             "objects": [
                 {
                     "kind": "BuildConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}",
-                        "labels": {
-                            "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
-                        }
+                        "name": "${APPLICATION_NAME}"
                     },
                     "spec": {
                         "triggers": [
@@ -152,11 +150,7 @@
                     "kind": "ImageStream",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}",
-                        "labels": {
-                            "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
-                        }
+                        "name": "${APPLICATION_NAME}"
                     },
                     "spec": {
                         "dockerImageRepository": "",
@@ -171,11 +165,7 @@
                     "kind": "DeploymentConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}",
-                        "labels": {
-                            "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
-                        }
+                        "name": "${APPLICATION_NAME}"
                     },
                     "spec": {
                         "strategy": {
@@ -245,11 +235,7 @@
                     "kind": "Route",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}",
-                        "labels": {
-                            "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
-                        }
+                        "name": "${APPLICATION_NAME}"
                     },
                     "spec": {
                         "host": "${APPLICATION_HOSTNAME}",
@@ -263,11 +249,7 @@
                     "kind": "Service",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}",
-                        "labels": {
-                            "app": "${APPLICATION_NAME}",
-                            "appName": "${APPLICATION_NAME}"
-                        }
+                        "name": "${APPLICATION_NAME}"
                     },
                     "spec": {
                         "ports": [
