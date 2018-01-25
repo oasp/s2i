@@ -9,7 +9,7 @@
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "devonfw-angular-labelName",
+                "name": "devonfw-angular-label",
                 "annotations": {
                     "description": "DevonFW application (angular/front-end)",
                     "iconClass": "devonfw-logo",
@@ -18,8 +18,7 @@
                 }
             },
             "labels": {
-                "app": "PAQUITO",
-                "appName": "${APPLICATION_NAME}",
+                "app": "${APPLICATION_NAME}",
                 "application": "devonfw-Angular",
                 "createdBy": "devonfw-angular"
             },
@@ -144,6 +143,9 @@
                             }
                         },
                         "resources": {}
+                    },
+                    "labels": {
+                        "app": "${APPLICATION_NAME}"
                     }
                 },
                 {
@@ -159,6 +161,9 @@
                                 "name": "latest"
                             }
                         ]
+                    },
+                    "labels": {
+                        "app": "${APPLICATION_NAME}"
                     }
                 },
                 {
@@ -229,6 +234,9 @@
                                 "dnsPolicy": "ClusterFirst"
                             }
                         }
+                    },
+                    "labels": {
+                        "app": "${APPLICATION_NAME}"
                     }
                 },
                 {
@@ -243,6 +251,9 @@
                             "kind": "Service",
                             "name": "${APPLICATION_NAME}"
                         }
+                    },
+                    "labels": {
+                        "app": "${APPLICATION_NAME}"
                     }
                 },
                 {
@@ -264,6 +275,9 @@
                         },
                         "type": "ClusterIP",
                         "sessionAffinity": "None"
+                    },
+                    "labels": {
+                        "app": "${APPLICATION_NAME}"
                     }
                 }
             ]
