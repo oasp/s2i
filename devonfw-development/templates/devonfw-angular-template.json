@@ -9,7 +9,7 @@
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "devonfw-angular-label2",
+                "name": "devonfw-angular-label3",
                 "annotations": {
                     "description": "DevonFW application (angular/front-end)",
                     "iconClass": "devonfw-logo",
@@ -18,7 +18,6 @@
                 }
             },
             "labels": {
-                "application": "devonfw-angular",
                 "createdBy": "devonfw-angular"
             },
             "parameters": [
@@ -87,7 +86,7 @@
                     "metadata": {
                         "name": "${APPLICATION_NAME}",
                         "labels": {
-                            "app": "${APPLICATION_NAME}",
+                            "app": "${APPLICATION_DISPLAY_MENU}",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -161,7 +160,7 @@
                     "metadata": {
                         "name": "${APPLICATION_NAME}",
                         "labels": {
-                            "app": "${APPLICATION_NAME}",
+                            "app": "${APPLICATION_DISPLAY_MENU}",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -180,7 +179,7 @@
                     "metadata": {
                         "name": "${APPLICATION_NAME}",
                         "labels": {
-                            "app": "${APPLICATION_NAME}",
+                            "app": "${APPLICATION_DISPLAY_MENU}",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -254,7 +253,7 @@
                     "metadata": {
                         "name": "${APPLICATION_NAME}",
                         "labels": {
-                            "app": "${APPLICATION_NAME}",
+                            "app": "${APPLICATION_DISPLAY_MENU}",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -272,7 +271,7 @@
                     "metadata": {
                         "name": "${APPLICATION_NAME}",
                         "labels": {
-                            "app": "${APPLICATION_NAME}",
+                            "app": "${APPLICATION_DISPLAY_MENU}",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
