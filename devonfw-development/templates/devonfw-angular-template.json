@@ -71,7 +71,7 @@
             ],
             "labels": {
                 "app": "PAQUITO",
-                "appName": "${APPLICATION_NAME}",
+                "appName": "app-${APPLICATION_NAME}",
                 "application": "devonfw-Angular",
                 "createdBy": "devonfw-angular"
             },
