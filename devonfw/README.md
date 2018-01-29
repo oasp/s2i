@@ -66,7 +66,8 @@ This file must be a list of <name>=<value> pairs. A parameter reference may appe
 The parameters that you must override are the following
 
     $ cat paramfile
-      APPLICATION_NAME=app Name
+      APPLICATION_NAME=app-Name
+	  APPLICATION_GROUP_NAME=group-Name
 	  GIT_URI=Git uri
 	  GIT_REF=master
 	  CONTEXT_DIR=/context
@@ -83,6 +84,7 @@ For example, to deploy My Thai Star Java
 
     $ cat paramfile
 	  APPLICATION_NAME="mythaistar-java"
+	  APPLICATION_GROUP_NAME="My-Thai-Star"
 	  GIT_URI="https://github.com/oasp/my-thai-star.git"
 	  GIT_REF="develop"
 	  CONTEXT_DIR="/java/mtsj"

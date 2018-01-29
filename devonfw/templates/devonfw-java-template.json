@@ -30,24 +30,30 @@
                     "required": true
                 },
                 {
+                    "description": "The name for the gropup list of applications. It can't contain whitespace. It should be the name of the app without the type, example: My-Thai-Star",
+                    "name": "APPLICATION_GROUP_NAME",
+                    "displayName": "Application group name",
+                    "required": true
+                },
+                {
                     "description": "Custom hostname for service routes. Leave blank for default hostname, e.g.: <application-name>.<project>.<default-domain-suffix>",
                     "name": "APPLICATION_HOSTNAME",
                     "displayName": "Application hostname"
                 },
                 {
-                    "description": "Git source URI for application",
+                    "description": "Git source URI for application, example: https://github.com/oasp/my-thai-star.git",
                     "name": "GIT_URI",
-                    "value": "Git uri"
+                    "required": true
                 },
                 {
-                    "description": "Git branch/tag reference",
+                    "description": "Git branch/tag reference, example: develop",
                     "name": "GIT_REF",
-                    "value": "master"
+                    "required": true
                 },
                 {
-                    "description": "Git Directory",
+                    "description": "Git Directory, example: /angular",
                     "name": "CONTEXT_DIR",
-                    "value": "/context"
+                    "required": true
                 },
                 {
                     "description": "Application options. These options will be passed to the Spring Boot command line",
@@ -71,7 +77,11 @@
                     "kind": "BuildConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "triggers": [
@@ -153,7 +163,11 @@
                     "kind": "ImageStream",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "dockerImageRepository": "",
@@ -168,7 +182,11 @@
                     "kind": "DeploymentConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "strategy": {
@@ -238,7 +256,11 @@
                     "kind": "Route",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "host": "${APPLICATION_HOSTNAME}",
@@ -252,7 +274,11 @@
                     "kind": "Service",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "ports": [
