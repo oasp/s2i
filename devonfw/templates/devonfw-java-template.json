@@ -13,24 +13,22 @@
                 "annotations": {
                     "description": "DevonFW application (java/backend)",
                     "openshift.io/display-name": "DevonFW Java",
-                    "iconClass": "devonfw-logo",
+                    "iconClass": "devonfw-java-logo",
                     "tags": "instant-app,devonfw,springboot,maven,java"
                 }
             },
             "labels": {
-                "application": "devonfw-Java",
                 "createdBy": "devonfw-java-server-template"
             },
             "parameters": [
                 {
-                    "description": "The name for the application.",
+                    "description": "The name for the application. It can't contain whitespaces. It should be the app name including technology, example: mythaistar-java",
                     "name": "APPLICATION_NAME",
-                    "value": "app Name",
                     "displayName": "Application name",
                     "required": true
                 },
                 {
-                    "description": "The name for the gropup list of applications. It can't contain whitespace. It should be the name of the app without the type, example: My-Thai-Star",
+                    "description": "The name for the group list of applications. It can't contain whitespaces. It should be the app name excluding technology, example: My-Thai-Star",
                     "name": "APPLICATION_GROUP_NAME",
                     "displayName": "Application group name",
                     "required": true
@@ -43,16 +41,19 @@
                 {
                     "description": "Git source URI for application, example: https://github.com/oasp/my-thai-star.git",
                     "name": "GIT_URI",
+                    "displayName": "Git repository URI",
                     "required": true
                 },
                 {
                     "description": "Git branch/tag reference, example: develop",
                     "name": "GIT_REF",
+                    "displayName": "Git repository BRANCH",
                     "required": true
                 },
                 {
-                    "description": "Git Directory, example: /angular",
+                    "description": "Git directory context, example: /java/mtsj",
                     "name": "CONTEXT_DIR",
+                    "displayName": "Git repository CONTEXT",
                     "required": true
                 },
                 {
