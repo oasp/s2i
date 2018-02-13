@@ -2,30 +2,35 @@
     "kind": "List",
     "apiVersion": "v1",
     "metadata": {
-        "name": "s2i-oasp"
+        "name": "s2i-devonfw"
     },
     "items": [
         {
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "oasp-mythaistar-java-sample",
+                "name": "devonfw-java",
                 "annotations": {
-                    "description": "My Thai Star sample application (java/backend)",
-                    "iconClass": "icon-openjdk",
-                    "tags": "instant-app,oasp,springboot,maven,java"
+                    "description": "DevonFW application (java/backend)",
+                    "openshift.io/display-name": "DevonFW Java",
+                    "iconClass": "devonfw-java-logo",
+                    "tags": "instant-app,devonfw,springboot,maven,java"
                 }
             },
             "labels": {
-                "application": "mythaistar-java",
-                "createdBy": "oasp-mythaistar-server-template"
+                "createdBy": "devonfw-java-server-template"
             },
             "parameters": [
                 {
-                    "description": "The name for the application.",
+                    "description": "The name for the application. It can't contain whitespaces. It should be the app name including technology, example: mythaistar-java",
                     "name": "APPLICATION_NAME",
-                    "value": "mythaistar-java",
                     "displayName": "Application name",
+                    "required": true
+                },
+                {
+                    "description": "The name for the group list of applications. It can't contain whitespaces. It should be the app name excluding technology, example: My-Thai-Star",
+                    "name": "APPLICATION_GROUP_NAME",
+                    "displayName": "Application group name",
                     "required": true
                 },
                 {
@@ -34,19 +39,21 @@
                     "displayName": "Application hostname"
                 },
                 {
-                    "description": "Git source URI for application",
+                    "description": "Git source URI for application, example: https://github.com/oasp/my-thai-star.git",
                     "name": "GIT_URI",
-                    "value": "https://github.com/oasp/my-thai-star.git"
+                    "displayName": "Git repository URI",
+                    "required": true
                 },
                 {
-                    "description": "Git branch/tag reference",
+                    "description": "Git branch/tag reference, example: develop",
                     "name": "GIT_REF",
-                    "value": "develop"
+                    "displayName": "Git repository BRANCH",
+                    "required": true
                 },
                 {
-                    "description": "Git Directory",
+                    "description": "Git directory context, example: /java/mtsj",
                     "name": "CONTEXT_DIR",
-                    "value": "/java/mtsj"
+                    "displayName": "Git repository CONTEXT",
                 },
                 {
                     "description": "Application options. These options will be passed to the Spring Boot command line",
@@ -70,7 +77,11 @@
                     "kind": "BuildConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "triggers": [
@@ -104,8 +115,8 @@
                             "sourceStrategy": {
                                 "from": {
                                     "kind": "ImageStreamTag",
-                                    "namespace": "oasp",
-                                    "name": "s2i-oasp-java:latest"
+                                    "namespace": "devonfw",
+                                    "name": "s2i-devonfw-java:latest"
                                 },
                                 "env": [
                                     {
@@ -152,7 +163,11 @@
                     "kind": "ImageStream",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "dockerImageRepository": "",
@@ -167,7 +182,11 @@
                     "kind": "DeploymentConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "strategy": {
@@ -237,7 +256,11 @@
                     "kind": "Route",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "host": "${APPLICATION_HOSTNAME}",
@@ -251,7 +274,11 @@
                     "kind": "Service",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "ports": [

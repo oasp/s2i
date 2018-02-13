@@ -2,30 +2,35 @@
     "kind": "List",
     "apiVersion": "v1",
     "metadata": {
-        "name": "s2i-oasp"
+        "name": "s2i-devonfw"
     },
     "items": [
         {
             "kind": "Template",
             "apiVersion": "v1",
             "metadata": {
-                "name": "oasp-mythaistar-angular-sample",
+                "name": "devonfw-angular",
                 "annotations": {
-                    "description": "My Thai Star sample application (angular/front-end)",
-                    "iconClass": "icon-nodejs",
-                    "tags": "instant-app,oasp,javascript,angular"
+                    "description": "DevonFW application (angular/front-end)",
+                    "openshift.io/display-name": "DevonFW Angular",
+                    "iconClass": "devonfw-angular-logo",
+                    "tags": "instant-app,devonfw,javascript,angular"
                 }
             },
             "labels": {
-                "application": "mythaistar-angular",
-                "createdBy": "oasp-mythaistar-angular-template"
+                "createdBy": "devonfw-angular"
             },
             "parameters": [
                 {
-                    "description": "The name for the application.",
+                    "description": "The name for the application. It can't contain whitespaces. It should be the app name including technology, example: mythaistar-angular",
                     "name": "APPLICATION_NAME",
-                    "value": "mythaistar-angular",
                     "displayName": "Application name",
+                    "required": true
+                },
+                {
+                    "description": "The name for the group list of applications. It can't contain whitespaces. It should be the app name excluding technology, example: My-Thai-Star",
+                    "name": "APPLICATION_GROUP_NAME",
+                    "displayName": "Application group name",
                     "required": true
                 },
                 {
@@ -34,24 +39,32 @@
                     "displayName": "Application hostname"
                 },
                 {
+                    "description": "The pattern URL of the backend's REST API endpoint inside the source code that is supposed to be modified by the REST Endpoint URL field.",
+                    "name": "REST_ENDPOINT_PATTERN",
+                    "displayName": "REST Endpoint PATTERN URL",
+                    "value": "http://localhost:8081"
+                },
+                {
                     "description": "The URL of the backend's REST API endpoint",
                     "name": "REST_ENDPOINT_URL",
                     "displayName": "REST Endpoint URL"
                 },
                 {
-                    "description": "Git source URI for application",
+                    "description": "Git source URI for application, example: https://github.com/oasp/my-thai-star.git",
                     "name": "GIT_URI",
-                    "value": "https://github.com/oasp/my-thai-star"
+                    "displayName": "Git repository URI",
+                    "required": true
                 },
                 {
-                    "description": "Git branch/tag reference",
+                    "description": "Git branch/tag reference, example: develop",
                     "name": "GIT_REF",
-                    "value": "develop"
+                    "displayName": "Git repository BRANCH",
+                    "required": true
                 },
                 {
-                    "description": "Git Directory",
+                    "description": "Git directory context, example: /angular",
                     "name": "CONTEXT_DIR",
-                    "value": "/angular"
+                    "displayName": "Git repository CONTEXT",
                 },
                 {
                     "description": "Github trigger secret",
@@ -71,7 +84,11 @@
                     "kind": "BuildConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "triggers": [
@@ -105,8 +122,8 @@
                             "sourceStrategy": {
                                 "from": {
                                     "kind": "ImageStreamTag",
-                                    "namespace": "oasp",
-                                    "name": "s2i-oasp-angular:latest"
+                                    "namespace": "devonfw",
+                                    "name": "s2i-devonfw-angular:latest"
                                 },
                                 "env": [
                                     {
@@ -115,7 +132,7 @@
                                     },
                                     {
                                         "name": "REST_ENDPOINT_PATTERN",
-                                        "value": "http://localhost:8081"
+                                        "value": "${REST_ENDPOINT_PATTERN}"
                                     },
                                     {
                                         "name": "BUILD_TARGET",
@@ -141,7 +158,11 @@
                     "kind": "ImageStream",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "dockerImageRepository": "",
@@ -156,7 +177,11 @@
                     "kind": "DeploymentConfig",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "strategy": {
@@ -226,7 +251,11 @@
                     "kind": "Route",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "host": "${APPLICATION_HOSTNAME}",
@@ -240,7 +269,11 @@
                     "kind": "Service",
                     "apiVersion": "v1",
                     "metadata": {
-                        "name": "${APPLICATION_NAME}"
+                        "name": "${APPLICATION_NAME}",
+                        "labels": {
+                            "app": "${APPLICATION_GROUP_NAME}",
+                            "application": "${APPLICATION_NAME}"
+                        }
                     },
                     "spec": {
                         "ports": [

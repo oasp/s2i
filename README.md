@@ -20,7 +20,7 @@ In order to build all of this, it will be necessary, first, to have a running Op
 
 1. Download the executable `oc.exe` from [here](https://github.com/openshift/origin/releases) and paste it somewhere in your machine.
 
-2. Once extracted and pasted, you can navigate to `oc.exe`'s directory and execute `oc cluster up`.
+2. Once extracted and pasted, you can navigate to `oc.exe`'s directory or add it to your PATH and execute `oc cluster up`.
 
 ## Usage
 
@@ -28,26 +28,31 @@ Before using the builder images, add them to the OpenShift cluster.
 
 #### Deploy the Source-2-Image builder images
 
-First, create a dedicated `oasp` project.
+First, create a dedicated `devonfw` project as admin.
 
-    oadm new-project oasp --display-name='OASP' --description='Open Application Standard Platform'
+    $ oc new-project devonfw --display-name='DevonFW' --description='DevonFW Application Standar Platform'
 
 Now add the builder image configuration and start their build.
 
-    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-oasp-java-imagestream.json --namespace=oasp
-    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-oasp-angular-imagestream.json --namespace=oasp
-    $ oc start-build s2i-oasp-java --namespace=oasp
-    $ oc start-build s2i-oasp-angular --namespace=oasp
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-devonfw-java-imagestream.json --namespace=devonfw
+    $ oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-devonfw-angular-imagestream.json --namespace=devonfw
+    oc start-build s2i-devonfw-java --namespace=devonfw
+    oc start-build s2i-devonfw-angular --namespace=devonfw
     
 Make sure other projects can access the builder images:
 
-    $ oadm policy add-role-to-group system:image-puller system:authenticated --namespace=oasp
+    oc policy add-role-to-group system:image-puller system:authenticated --namespace=devonfw
 
 That's all !
 
+#### Deploy DevonFW templates
+
+Now, it's time to create devonfw templates to use this s2i and add it to the browse catalog. More information:
+- [DevonFW templates](https://github.com/oasp/s2i/tree/master/templates/devonfw#how-to-use).
+
 #### Build All
 
-Use script `build.sh` to automatically install and build all image streams. The script also creates a project 'My Thai Star' and deploys the reference application.
+Use script `build.sh` to automatically install and build all image streams. The script also creates devonfw-angular and devonfw-java inside the project 'openshift'.
 
 1. Open a bash shell as Administrator
 2. Execute shell file: 
