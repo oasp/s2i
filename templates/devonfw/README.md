@@ -16,7 +16,7 @@ Remember that this templates need a build image from s2i-devonfw-angular and s2i
 ##### Customize Openshift with the template icons
 
 Remeber that this templates also have a custom icons, and to use it, we must modify the master-config.yml inside openshift. More information:
-- [DevonFW Openshift Origin Add Custom Icons](https://github.com/oasp/s2i/master/templates/devonfw/icons/stylesheet).
+- [DevonFW Openshift Origin Add Custom Icons](https://github.com/oasp/s2i/tree/master/templates/devonfw/icons/stylesheet).
 
 #### Deploy DevonFW templates
 
