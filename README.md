@@ -52,7 +52,7 @@ Now, it's time to create devonfw templates to use this s2i and add it to the bro
 
 #### Build All
 
-Use script `build.sh` to automatically install and build all image streams. The script also creates devonfw-angular and devonfw-java inside the project 'openshift'.
+Use script `build.sh` to automatically install and build all image streams. The script also creates templates devonfw-angular and devonfw-java inside the project 'openshift' to be used by everyone.
 
 1. Open a bash shell as Administrator
 2. Execute shell file: 

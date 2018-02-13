@@ -53,7 +53,7 @@
                 {
                     "description": "Git directory context, example: /java/mtsj",
                     "name": "CONTEXT_DIR",
-                    "displayName": "Git repository CONTEXT",
+                    "displayName": "Git repository CONTEXT"
                 },
                 {
                     "description": "Application options. These options will be passed to the Spring Boot command line",

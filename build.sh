@@ -26,7 +26,7 @@ echo -e "${BLUE}
                                     _ _ _
 ${NC}"
 
-echo "Login as admin"
+echo "You must login as admin, wait a moment..."
 oc login
 
 oc adm policy add-cluster-role-to-user cluster-admin system
@@ -38,7 +38,7 @@ oc new-project devonfw --display-name='DevonFW' --description='DevonFW'
 
 ## Create base-images and add them to DevonFW project
 ### this files are private, to share it, you must enter in Git with a valid user, open the file and press RAW Button to generate a valid token
-oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-devonfw-java-imagestream.json --namespace=devonfw
+oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/java/s2i-devonfw-java-imagestream.json --namespace=devonfw
 oc create -f https://raw.githubusercontent.com/oasp/s2i/master/s2i/angular/s2i-devonfw-angular-imagestream.json --namespace=devonfw
 
 ## Build base-images in DevonFW project
