@@ -65,7 +65,6 @@
                     "description": "Git directory context, example: /angular",
                     "name": "CONTEXT_DIR",
                     "displayName": "Git repository CONTEXT",
-                    "required": true
                 },
                 {
                     "description": "Github trigger secret",
