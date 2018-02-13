@@ -71,3 +71,4 @@ This is a list of useful articels etc I found while creating the templates.
 
 * [Template Icons](https://github.com/openshift/openshift-docs/issues/1329)
 * [Red Hat Cool Store Microservice Demo](https://github.com/jbossdemocentral/coolstore-microservice)
+* [Openshift Web Console Customization](https://docs.openshift.com/container-platform/3.5/install_config/web_console_customization.html)
