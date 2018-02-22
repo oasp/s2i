@@ -13,10 +13,10 @@ This are the DevonFW templates to build devonfw apps using the s2i images. They 
 Remember that this templates need a build image from s2i-devonfw-angular and s2i-devonfw-java. More information:
 - [Deploy the Source-2-Image builder images](https://github.com/oasp/s2i#deploy-the-source-2-image-builder-images).
 
-##### Customize Openshift with the template icons
+##### Customize Openshift
 
 Remeber that this templates also have a custom icons, and to use it, we must modify the master-config.yml inside openshift. More information:
-- [DevonFW Openshift Origin Add Custom Icons](https://github.com/oasp/s2i/tree/master/templates/devonfw/icons/stylesheet).
+- [DevonFW Openshift Origin Add Custom Icons](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/).
 
 #### Deploy DevonFW templates
 

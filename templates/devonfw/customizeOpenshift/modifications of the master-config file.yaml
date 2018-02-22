@@ -1,0 +1,8 @@
+assetConfig:
+  extensionScripts:
+  - /var/lib/origin/openshift.local.devonfw/scripts/catalog-categories.js
+  extensionStylesheets:
+  - /var/lib/origin/openshift.local.devonfw/stylesheet/icons.css
+  extensions:
+  - name: images
+    sourceDirectory: /var/lib/origin/openshift.local.devonfw/images
