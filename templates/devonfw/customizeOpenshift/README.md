@@ -8,14 +8,14 @@ This is a guide to customize Openshift cluster. For more informaticon read the n
 - [`Images Styles`](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/#images-styles).
 - [`Quick Use`](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/#quick-use).
 - [How to add custom `icons` inside openshift](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/#how-to-add-custom-icons-inside-openshift).
-- [How to add custom `catalog categories` inside openshift](how-to-add-custom-catalog-categories-inside-openshift).
+- [How to add custom `catalog categories` inside openshift](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/#how-to-add-custom-catalog-categories-inside-openshift).
 
 # Images Styles
 The icons for templates must measure the same as below or the images don't show right:
 
-`Openshift logo`: 230px x 40px.
-`Template logo`: 50px x 50px.
-`Category logo`: 110px x 36px.
+- `Openshift logo`: 230px x 40px.
+- `Template logo`: 50px x 50px.
+- `Category logo`: 110px x 36px.
 
 # Quick Use
 

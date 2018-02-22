@@ -2,7 +2,8 @@
 
 This are the DevonFW templates to build devonfw apps using the s2i images. They are based on the work of Mickuehl in Oasp templates/mythaistar for deploy My Thai Star.
 
-- Inside the `icons` we have a custom icons for openshift.
+- Inside the `customizeOpenshift` we have a information about how to customize an Openshift cluster to show custom catalog categories, custom languages and custom icons with DevonFW logos.
+- Inside the `example-mythaistar` we have an example to deploy My Thai Star application using DevonFW templates.
 
 ## How to use
 
@@ -16,7 +17,7 @@ Remember that this templates need a build image from s2i-devonfw-angular and s2i
 ##### Customize Openshift
 
 Remeber that this templates also have a custom icons, and to use it, we must modify the master-config.yml inside openshift. More information:
-- [DevonFW Openshift Origin Add Custom Icons](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/).
+- [Customize DevonFW Openshift Origin](https://github.com/oasp/s2i/tree/master/templates/devonfw/customizeOpenshift/).
 
 #### Deploy DevonFW templates
 
